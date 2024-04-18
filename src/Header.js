@@ -5,11 +5,6 @@ import { UserContext } from "./UserContext";
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
   
-  useEffect(() => {
-    fetchUserInfo();
-  }, []);
-  
-
   const fetchUserInfo = () => {
     fetch('http://localhost:4040/profile', {
       credentials: 'include',
@@ -29,6 +24,11 @@ export default function Header() {
         console.error('Error fetching user information:', error);
       });
   }
+
+  useEffect(() => {
+    fetchUserInfo();
+  }, []);
+  
 
   const logout = () => {
     fetch('http://localhost:4040/logout', {
@@ -56,6 +56,7 @@ export default function Header() {
       <nav>
         {username ? (
           <>
+            <span>Hello, {username}</span>
             <Link to="/create">Create new post</Link>
             <button href="#" onClick={logout}>Logout ({username})</button>
           </>
