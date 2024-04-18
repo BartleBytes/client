@@ -6,7 +6,7 @@ export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
   
   const fetchUserInfo = () => {
-    fetch('http://localhost:4040/profile', {
+    fetch('https://blog-api.onrender.com/profile', {
       credentials: 'include',
       method: "GET",
     })
@@ -31,7 +31,7 @@ export default function Header() {
   
 
   const logout = () => {
-    fetch('http://localhost:4040/logout', {
+    fetch('https://blog-api.onrender.com/logout', {
       credentials: 'include',
       method: 'POST',
     })

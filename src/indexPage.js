@@ -5,7 +5,7 @@ export default function IndexPage() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:4040/posts') // Corrected endpoint URL to match the backend route
+        fetch('https://blog-api.onrender.com/posts') // Corrected endpoint URL to match the backend route
             .then(response => response.json())
             .then(posts => {
                 setPosts(posts);

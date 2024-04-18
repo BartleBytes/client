@@ -17,7 +17,7 @@ export default function CreatePost() {
     data.set('content', content);
     data.set('file', files[0]);
     ev.preventDefault();
-    const response = await fetch('http://localhost:4040/post', {
+    const response = await fetch('https://blog-api.onrender.compost', {
       method: 'POST',
       body: data,
       credentials: 'include',
