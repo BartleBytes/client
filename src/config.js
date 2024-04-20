@@ -1,3 +1,3 @@
-const BASE_URL = 'https://blog-api.onrender.com';
+const BASE_URL = 'https://api-2q4i.onrender.com';
 
 export default BASE_URL;
