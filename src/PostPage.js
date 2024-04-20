@@ -10,7 +10,7 @@ export default function PostPage() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`https://blog-api.onrender.com/post/${id}`)
+    fetch(`http://localhost:4040/post/${id}`)
       .then(response => response.json())
       .then(data => setPostInfo(data))
       .catch(error => console.error('Error fetching post:', error));

@@ -7,7 +7,7 @@ export default function RegisterPage() {
     const [email, setEmail] = useState('');
     async function register(ev) {
         ev.preventDefault();
-        const response = await fetch('https://blog-api.onrender.com/register', {
+        const response = await fetch('http://localhost:4040/register', {
                 method: 'POST',
                 body: JSON.stringify({username, password}),
                 headers: {'Content-Type': 'application/json'},

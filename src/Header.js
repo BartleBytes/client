@@ -5,8 +5,9 @@ import { UserContext } from "./UserContext";
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchUserInfo = () => {
-    fetch('https://blog-api.onrender.com/profile', {
+    fetch('http://localhost:4040/profile', {
       credentials: 'include',
       method: "GET",
     })
@@ -26,12 +27,15 @@ export default function Header() {
   }
 
   useEffect(() => {
-    fetchUserInfo();
-  }, []);
-  
+    // Only fetch user information if userInfo is not already available
+    if (!userInfo) {
+      fetchUserInfo();
+    }
+  }, [fetchUserInfo, userInfo]); // Run the effect only when userInfo changes
+
 
   const logout = () => {
-    fetch('https://blog-api.onrender.com/logout', {
+    fetch('http://localhost:4040/logout', {
       credentials: 'include',
       method: 'POST',
     })
@@ -58,7 +62,7 @@ export default function Header() {
           <>
             <span>Hello, {username}</span>
             <Link to="/create">Create new post</Link>
-            <button href="#" onClick={logout}>Logout ({username})</button>
+            <button onClick={logout}>Logout ({username})</button>
           </>
         ) : (
           <>
