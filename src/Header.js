@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { UserContext } from "./UserContext";
+import BASE_URL from "./config";
 
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
   
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchUserInfo = () => {
-    fetch('http://localhost:4040/profile', {
+    fetch(`${BASE_URL}/profile`, {
       credentials: 'include',
       method: "GET",
     })
@@ -35,7 +36,7 @@ export default function Header() {
 
 
   const logout = () => {
-    fetch('http://localhost:4040/logout', {
+    fetch(`${BASE_URL}/logout`, {
       credentials: 'include',
       method: 'POST',
     })

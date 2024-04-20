@@ -1,11 +1,12 @@
 import Post from './Post';
 import { useEffect, useState } from 'react';
+import BASE_URL from './config';
 
 export default function IndexPage() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:4040/posts') // Corrected endpoint URL to match the backend route
+        fetch(`${BASE_URL}/posts`) // Corrected endpoint URL to match the backend route
             .then(response => response.json())
             .then(posts => {
                 setPosts(posts);

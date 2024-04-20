@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { formatISO9075 } from "date-fns";
 import { UserContext } from "./UserContext";
 import { Link } from 'react-router-dom';
+import BASE_URL from './config';
 
 export default function PostPage() {
   const [postInfo, setPostInfo] = useState(null);
@@ -10,7 +11,7 @@ export default function PostPage() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:4040/post/${id}`)
+    fetch(`${BASE_URL}/post/${id}`)
       .then(response => response.json())
       .then(data => setPostInfo(data))
       .catch(error => console.error('Error fetching post:', error));
@@ -38,7 +39,7 @@ export default function PostPage() {
         </div>
       )}
       <div className="image">
-        <img src={`http://localhost:4040/${cover}`} alt=""/>
+        <img src={`${BASE_URL}/${cover}`} alt=""/>
       </div>
       <div className="content" dangerouslySetInnerHTML={{ __html: content }} />
     </div>
