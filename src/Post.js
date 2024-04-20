@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { formatISO9075 } from "date-fns";
-// import BASE_URL from "./config";
+import BASE_URL from "./config";
 
 export default function Post({ _id, title, summary, cover, content, createdAt, author }) {
   return (
     <div className="post">
       <div className="image">
-        <Link to={`/post/${_id}`}>
+        <Link to={`${BASE_URL}/post/${_id}`}>
           <img src={`/` + cover} alt="" />
         </Link>
       </div>

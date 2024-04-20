@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { UserContext } from "./UserContext";
-// import BASE_URL from "./config";
+import BASE_URL from "./config";
 
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
   
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchUserInfo = () => {
-    fetch(`/profile`, {
+    fetch(`${BASE_URL}/profile`, {
       credentials: 'include',
       method: "GET",
     })
